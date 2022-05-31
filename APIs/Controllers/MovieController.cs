@@ -24,7 +24,24 @@ namespace APIs.Controllers
             try
             {
                 List<Movie> movies = movieRepo.GetAll();
-                return Ok(movies);
+                List<MovieDTO> moviesDTO = new List<MovieDTO>();
+
+                foreach(var movie in movies)
+                {
+                    moviesDTO.Add(new MovieDTO()
+                    {
+                        Id = movie.Id,
+                        Title = movie.Title,
+                        Date = movie.Date,
+                        Image = movie.Image,
+                        Trailer = movie.Trailer,
+                        Limit = movie.Limit,
+                        Duration = movie.Duration,
+                        Description = movie.Description,
+                        Genre = movie.Genre.Name
+                    });
+                }
+                return Ok(moviesDTO);
             }
             catch (Exception ex)
             {
@@ -50,7 +67,7 @@ namespace APIs.Controllers
                 movieDTO.Limit = movie.Limit;
                 movieDTO.Duration = movie.Duration;
                 movieDTO.Description = movie.Description;
-                movieDTO.Genre = movie.Genre;
+                movieDTO.Genre = movie.Genre.Name;
                 return Ok(movieDTO);
             }
             catch (Exception ex)

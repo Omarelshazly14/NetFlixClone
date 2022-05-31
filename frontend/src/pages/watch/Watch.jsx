@@ -3,7 +3,7 @@ import React from "react";
 import { ArrowBackOutlined } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 
-const watch = () => {
+const Watch = () => {
   const location = useLocation();
   const movie = location.movie;
   return (
@@ -19,4 +19,4 @@ const watch = () => {
   );
 };
 
-export default watch;
+export default Watch;

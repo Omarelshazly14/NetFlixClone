@@ -17,7 +17,7 @@ namespace APIs.Repositories
         }
         public Genre? GetById(int id)
         {
-            return db.Genres.Include(g=>g.Movies).SingleOrDefault(g => g.Id == id);
+            return db.Genres.SingleOrDefault(g => g.Id == id);
         }
         public int Insert(Genre newGenre)
         {

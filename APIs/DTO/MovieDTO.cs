@@ -12,7 +12,7 @@ namespace APIs.DTO
         public int Limit { get; set; }
         public string Duration { get; set; }
         public string Description { get; set; }
-        public Genre Genre { get; set; }
+        public string Genre { get; set; }
 
     }
 }

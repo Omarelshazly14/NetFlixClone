@@ -6,7 +6,7 @@ import {
   ArrowForwardIosOutlined,
 } from "@material-ui/icons";
 
-const List = ({ list }) => {
+const List = ({ list, genre }) => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
 
@@ -26,7 +26,7 @@ const List = ({ list }) => {
   };
   return (
     <div className="list">
-      <span className="listTitle">{list.title}</span>
+      <span className="listTitle">{genre} Movies</span>
       <div className="wrapper">
         <ArrowBackIosOutlined
           className="sliderArrow left"

@@ -12,6 +12,12 @@ builder.Services.AddDbContext<Context>(options =>
 builder.Services.AddScoped<IGenreRepo, GenreRepo>();
 builder.Services.AddScoped<IMovieRepo, MovieRepo>();
 builder.Services.AddControllers();
+builder.Services.AddCors(options => {
+    options.AddPolicy("MyPolicy", policyBuilder =>
+{
+    policyBuilder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+});
+    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -25,6 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseStaticFiles();
+app.UseCors("MyPolicy");
 app.UseRouting();
 app.UseAuthorization();
 

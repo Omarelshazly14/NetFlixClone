@@ -8,8 +8,8 @@ const Navbar = () => {
 
   window.onscroll = () => {
     setIsScrolled(window.scrollY < 10 ? false : true);
-    console.log(window.scrollY);
-    console.log(isScrolled);
+    // console.log(window.scrollY);
+    // console.log(isScrolled);
     return () => (window.onscroll = null);
   };
   return (
