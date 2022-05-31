@@ -12,11 +12,11 @@ namespace APIs.Repositories
         }
         public List<Movie> GetAll()
         {
-            return db.Movies.ToList();
+            return db.Movies.Include(m=>m.Genre).ToList();
         }
         public Movie? GetById(int id)
         {
-            return db.Movies.Include(m => m.MovieActors).ThenInclude(m => m.Actor).SingleOrDefault(m => m.Id == id);
+            return db.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
         }
         public int Insert(Movie newMovie)
         {
@@ -26,13 +26,16 @@ namespace APIs.Repositories
         }
         public int Update(Movie newMovie)
         {
-            Movie? oldMovie = db.Movies.SingleOrDefault(a => a.Id == newMovie.Id);
+            Movie? oldMovie = db.Movies.SingleOrDefault(m => m.Id == newMovie.Id);
             if (oldMovie == null) return 0;
 
-            oldMovie.Name = newMovie.Name;
+            oldMovie.Title = newMovie.Title;
             oldMovie.Date = newMovie.Date;
-            oldMovie.Poster = newMovie.Poster;
-            oldMovie.Average_Rating = newMovie.Average_Rating;
+            oldMovie.Image = newMovie.Image;
+            oldMovie.Trailer = newMovie.Trailer;
+            oldMovie.Limit = newMovie.Limit;
+            oldMovie.Duration = newMovie.Duration;
+            oldMovie.Description = newMovie.Description;
             oldMovie.Genre_Id = newMovie.Genre_Id;
             int rowsAffected = db.SaveChanges();
             return rowsAffected;

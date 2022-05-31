@@ -41,13 +41,16 @@ namespace APIs.Controllers
                 Movie? movie = movieRepo.GetById(id);
                 if (movie == null) return BadRequest("Movie Not Found");
 
-                MovieWithActorsDTO movieDTO = new MovieWithActorsDTO();
+                MovieDTO movieDTO = new MovieDTO();
                 movieDTO.Id = movie.Id;
-                movieDTO.Movie_Name = movie.Name;
-                foreach (var item in movie.MovieActors)
-                {
-                    movieDTO.Movie_Actors.Add(item.Actor);
-                }
+                movieDTO.Title = movie.Title;
+                movieDTO.Date = movie.Date;
+                movieDTO.Image = movie.Image;
+                movieDTO.Trailer = movie.Trailer;
+                movieDTO.Limit = movie.Limit;
+                movieDTO.Duration = movie.Duration;
+                movieDTO.Description = movie.Description;
+                movieDTO.Genre = movie.Genre;
                 return Ok(movieDTO);
             }
             catch (Exception ex)

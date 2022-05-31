@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using APIs.Models;
 
-namespace APIs.Models
+namespace APIs.DTO
 {
-    public class Movie
+    public class MovieDTO
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -12,12 +12,7 @@ namespace APIs.Models
         public int Limit { get; set; }
         public string Duration { get; set; }
         public string Description { get; set; }
+        public Genre Genre { get; set; }
 
-        // Foreign Keys
-        [ForeignKey("Genre")]
-        public int Genre_Id { get; set; }
-
-        //Navigation Properties
-        public virtual Genre Genre { get; set; }
     }
 }

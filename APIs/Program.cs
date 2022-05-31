@@ -10,8 +10,6 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
 });
 builder.Services.AddScoped<IGenreRepo, GenreRepo>();
-builder.Services.AddScoped<IActorRepo, ActorRepo>();
-builder.Services.AddScoped<IMovieActorRepo, MovieActorRepo>();
 builder.Services.AddScoped<IMovieRepo, MovieRepo>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
