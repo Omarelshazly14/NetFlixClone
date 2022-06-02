@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Watch = () => {
   const location = useLocation();
-  const movie = location.movie;
+  const { movie } = location.state;
   return (
     <div className="watch">
       <Link to="/">
@@ -14,7 +14,13 @@ const Watch = () => {
           Home
         </div>
       </Link>
-      <video className="video" autoPlay progress controls src="movie.video" />
+      <video
+        className="video"
+        autoPlay
+        progress="true"
+        controls
+        src={`/assets/${movie}`}
+      />
     </div>
   );
 };

@@ -24,7 +24,7 @@
 
   &:hover {
     width: 325px;
-    height: 170px; //should be 300px
+    height: 300px;
     position: absolute;
     top: -150px;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
@@ -43,8 +43,8 @@
       .icons {
         display: flex;
         margin-bottom: 10px;
-        justify-content: space-between;
-        //margin-right:10px;
+        justify-content: space-around;
+        // margin-right: 10px;
         font-size: 16px;
 
         .icon {
@@ -61,11 +61,17 @@
         font-size: 14px;
         font-weight: 600;
         color: grey;
+
         .limit {
           border: 1px solid grey;
           padding: 1px 3px;
           margin: 0px 10px;
         }
+      }
+
+      .title {
+        color: white;
+        margin: 5px;
       }
 
       .desc {

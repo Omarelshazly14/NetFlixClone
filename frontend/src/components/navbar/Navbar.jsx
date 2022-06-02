@@ -8,8 +8,6 @@ const Navbar = () => {
 
   window.onscroll = () => {
     setIsScrolled(window.scrollY < 10 ? false : true);
-    // console.log(window.scrollY);
-    // console.log(isScrolled);
     return () => (window.onscroll = null);
   };
   return (
@@ -28,8 +26,13 @@ const Navbar = () => {
           <span>New</span>
         </div>
         <div className="right">
+          <Link to="/login" className="link">
+            <button className="loginButton">Sign In</button>
+          </Link>
+          <Link to="/register" className="link">
+            <button className="loginButton">Sign Up</button>
+          </Link>
           <Search className="icon" />
-          {/* <span> KID</span> */}
           <Notifications className="icon" />
           <img
             src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?cs=srgb&dl=pexels-suliman-sallehi-1704488.jpg&fm=jpg"

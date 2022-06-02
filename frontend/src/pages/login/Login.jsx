@@ -1,4 +1,6 @@
+import { ArrowBackOutlined } from "@material-ui/icons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./login.scss";
 
 const Login = () => {
@@ -10,10 +12,23 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div
+      className="login"
+      style={{
+        background:
+          "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%),url('/assets/register-background.PNG')",
+      }}
+    >
       <div className="top">
         <div className="wrapper">
           <img src="" alt="" className="logo" />
+          <Link to="/">
+            <div className="back">
+              <ArrowBackOutlined />
+              Home
+            </div>
+          </Link>
+          <button className="loginButton">Sign Up</button>
         </div>
       </div>
       <div className="container">

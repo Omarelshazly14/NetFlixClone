@@ -19,7 +19,7 @@ const List = ({ list, genre }) => {
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
       setSlideNumber(slideNumber - 1);
     }
-    if (direction === "right" && slideNumber < 10) {
+    if (direction === "right" && slideNumber < list.length - 6) {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
       setSlideNumber(slideNumber + 1);
     }
@@ -35,7 +35,7 @@ const List = ({ list, genre }) => {
         />
         <div className="container" ref={listRef}>
           {list.map((item, index) => {
-            <ListItem item={item} index={index} />;
+            return <ListItem item={item} key={index} />;
           })}
         </div>
         <ArrowForwardIosOutlined

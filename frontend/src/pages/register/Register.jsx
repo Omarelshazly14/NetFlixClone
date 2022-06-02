@@ -1,5 +1,8 @@
 import "./register.scss";
 import React, { useRef, useState } from "react";
+import { ArrowBackOutlined } from "@material-ui/icons";
+import { Link } from "react-router-dom";
+
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,10 +17,22 @@ const Register = () => {
     setEmail(passwordRef.current.value);
   };
   return (
-    <div className="register">
+    <div
+      className="register"
+      style={{
+        background:
+          "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 90%),url('/assets/register-background.PNG')",
+      }}
+    >
       <div className="top">
         <div className="wrapper">
           <img src="" alt="" className="logo" />
+          <Link to="/">
+            <div className="back">
+              <ArrowBackOutlined />
+              Home
+            </div>
+          </Link>
           <button className="loginButton">Sign In</button>
         </div>
       </div>
